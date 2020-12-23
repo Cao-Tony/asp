@@ -1,0 +1,15 @@
+.far-left-item {
+    padding: 0 50px 0 0;
+}
+
+.far-right-item {
+    padding: 0 0 0 50px;
+}
+
+.middle-items {
+    padding: 0 50px 0 50px;
+}
+
+.text { 
+    color: black;
+}

@@ -1,18 +1,20 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 
+import AuthAPI from '../utils/AuthAPI';
+
 import './SubNavBar.css';
 
 function SubNavBar() {
-    let signedIn = false; 
+    const authApi = React.useContext(AuthAPI); 
     let userName = 'Tony';
 
     return (
         <div>
              <Nav className="justify-content-end">
-                {signedIn ? 
+                {authApi.auth ? 
                     <Nav.Item>
-                        <Nav.Link href="/signin" className="text">Hello, {userName}</Nav.Link>
+                        <Nav.Link href="/dashboard" className="text">Hello, {userName}</Nav.Link>
                     </Nav.Item>
                     :
                     <Nav.Item>

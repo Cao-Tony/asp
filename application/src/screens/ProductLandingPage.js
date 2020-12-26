@@ -6,9 +6,11 @@ import MainNavBar from '../components/MainNavBar';
 import SubNavBar from '../components/SubNavBar';
 import Product from '../components/Product';
 
+import './ProductLandingPage.css'
+
 function ProductLandingPage() {
     return (
-        <div>
+        <div className="main">
             <SubNavBar />
             <Image src={logo} className="image"/>
             <MainNavBar route={'/products'}/>

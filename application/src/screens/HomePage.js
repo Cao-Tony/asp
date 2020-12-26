@@ -9,7 +9,7 @@ import './HomePage.css';
 
 function HomePage() {
     return (
-        <div>
+        <div className="main">
             <SubNavBar />
             <Image src={logo} className="image"/>
             <MainNavBar route={'/'}/>
@@ -17,4 +17,4 @@ function HomePage() {
     )
 }
 
-export default HomePage
+export default HomePage;

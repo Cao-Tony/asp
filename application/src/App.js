@@ -1,45 +1,30 @@
-import React from 'react'; 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React, { useState, useEffect } from 'react'; 
+import { BrowserRouter as Router } from "react-router-dom";
+import axios from 'axios';
 
-import CartViewingPage from './screens/CartViewingPage';
-import FaqPage from './screens/FaqPage';
-import HomePage from './screens/HomePage';
-import PrizesPage from './screens/PrizesPage';
-import ProductLandingPage from './screens/ProductLandingPage';
-import ReturnsOrdersPage from './screens/ReturnsOrdersPages';
-import SigninPage from './screens/SigninPage';
+import Routes from './components/Routes';
+import AuthAPI from './utils/AuthAPI';
 
 function App() {
+  const [auth, setAuth] = useState(false);
+
+  const readSession = async () => {
+    const result = await axios.get("/auth/hassignedin");
+    if(result.data.auth) {
+      setAuth(true);
+    }
+  };
+
+  useEffect(() => {
+    readSession();
+  }, []);
+
   return (
-    <Router>
-      <Switch>
-          <Route path="/products">
-            <ProductLandingPage />
-          </Route>
-          <Route path="/cart">
-            <CartViewingPage />
-          </Route>
-          <Route path="/signin">
-            <SigninPage />
-          </Route>
-          <Route path="/returns-and-orders">
-            <ReturnsOrdersPage />
-          </Route>
-          <Route path="/faq">
-            <FaqPage />
-          </Route>
-          <Route path="/prizes">
-            <PrizesPage />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-    </Router>
+    <AuthAPI.Provider value={{ auth, setAuth }}>
+      <Router>
+        <Routes />
+      </Router>
+    </AuthAPI.Provider>
   );
 }
 

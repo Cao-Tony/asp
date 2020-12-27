@@ -28,6 +28,10 @@ const userSchema = new Schema({
         unique: true,
         trim: true,
       },
+    orders: {
+      type: [], 
+      required: true,
+    }
 }, { 
     timestamps: true,
 });

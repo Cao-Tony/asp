@@ -72,7 +72,7 @@ export default function SignUp() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    const user = { firstName, lastName, email, password };
+    const user = { firstName, lastName, email, password, orders: [] };
     const result = await axios.post("/auth/signup", user);
     if(result.data.auth) {
       authApi.setAuth(true);

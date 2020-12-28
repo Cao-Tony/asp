@@ -17,6 +17,8 @@ import graypink from '../assets/pinkBagPhotos/graypink.jpg';
 import handholdbag from '../assets/pinkBagPhotos/handholdbag.jpg';
 import shoulderholdbag from '../assets/pinkBagPhotos/shoulderholdbag.jpg';
 
+import ProductDetails from './ProductDetails';
+
 import './Product.css';
 
 function Product({ratings, reviews, buyers}) {
@@ -80,15 +82,16 @@ function Product({ratings, reviews, buyers}) {
             <Row>
                 <Col/>
                     <Col xs={7}>
-                        <Row>
+                        <Row className="tab-menu">
                             <Col />
-                            <Col xs={6} className="main-col" style={{backgroundColor: 'red'}}>
+                            <Col xs={6} className="main-col">
                                 <Tabs
                                     id="controlled-tab-example"
                                     activeKey={key}
                                     onSelect={(k) => setKey(k)}
                                 >
                                 <Tab eventKey="Product Details" title="Product Details">
+                                    <ProductDetails />
                                 </Tab>
                                 <Tab eventKey="Transactions" title="Transactions">
                                 </Tab>

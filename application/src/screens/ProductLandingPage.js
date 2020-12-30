@@ -14,7 +14,7 @@ function ProductLandingPage() {
             <SubNavBar />
             <Image src={logo} className="image"/>
             <MainNavBar route={'/products'}/>
-            <Product ratings={4.5} reviews={153} buyers={308}/>
+            <Product ratings={4.5} reviews={153} buyers={308} price={50.45}/>
         </div>
     )
 }

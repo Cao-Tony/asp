@@ -16,8 +16,10 @@ app.use(session({
 
 // routes 
 const userRouter = require('./router/user.route');
+const paymentRouter = require('./router/payment.route');
 
-app.use("/", userRouter)
+app.use("/", userRouter);
+app.use("/payment", paymentRouter);
 
 module.exports = app;
 
